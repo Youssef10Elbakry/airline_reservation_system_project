@@ -6,6 +6,7 @@ void main() {
   runApp(MaterialApp(
     routes: {
       HomeScreen.screenName: (_) =>  const HomeScreen(),
+      RegisterationScreen.screenName: (_) => RegisterationScreen()
     },
     initialRoute: HomeScreen.screenName,
   )

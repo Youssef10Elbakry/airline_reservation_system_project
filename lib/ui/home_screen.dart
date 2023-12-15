@@ -73,6 +73,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: (){
+                  Navigator.pushNamed(context, RegisterationScreen.screenName);
                 },
                 style: ElevatedButton.styleFrom(
                     primary: const Color(0xff4F718A),
