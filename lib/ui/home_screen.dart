@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Auth/Registeration/registeration_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static String screenName = "Home Screen";
@@ -71,10 +72,11 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                },
                 style: ElevatedButton.styleFrom(
                     primary: const Color(0xff4F718A),
-                    fixedSize: Size(300, 49),
+                    fixedSize: const Size(300, 49),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
                 ),
                 child: const Row(
