@@ -11,7 +11,7 @@ class RegisterationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(image: DecorationImage(fit: BoxFit.cover,image: AssetImage("assets/Registeration/background.png"))),
+      decoration: const BoxDecoration(image: DecorationImage(fit: BoxFit.cover,image: AssetImage("assets/Registeration_login/background.png"))),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
@@ -23,7 +23,7 @@ class RegisterationScreen extends StatelessWidget {
               children: [
                 Text("Registeration", style: TextStyle(fontSize: 34, color: Colors.white),),
                 SizedBox(width: 50,),
-                Image(image: AssetImage("assets/Registeration/takeoff-the-plane 1.png"))
+                Image(image: AssetImage("assets/Registeration_login/takeoff-the-plane 1.png"))
               ],
             ),
             const SizedBox(height: 20,),
