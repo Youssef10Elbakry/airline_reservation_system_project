@@ -9,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -53,7 +54,7 @@ class HomeScreen extends StatelessWidget {
             children: [
             ElevatedButton(
               onPressed: (){
-
+                Navigator.pushNamed(context, LoginScreen.screenName);
               },
                 style: ElevatedButton.styleFrom(primary: Color(0xff4F718A),
                 fixedSize: const Size(300, 50),
@@ -76,6 +77,7 @@ class HomeScreen extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: (){
+                  Navigator.pushNamed(context, RegisterationScreen.screenName);
                 },
                 style: ElevatedButton.styleFrom(
                     primary: const Color(0xff4F718A),

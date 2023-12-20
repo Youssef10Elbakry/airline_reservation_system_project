@@ -39,15 +39,18 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     Expanded(child: ListView.builder(itemCount: 2, itemBuilder: (_, index )=>Column(
                       children: [
-                        index == 0 ?const SizedBox(height: 20,):const SizedBox(height: 40,),
+                        index == 0 ? const SizedBox(height: 20):const SizedBox(height: 40,),
                         MyTextFormField(hintText: hintTexts[index], inputType: inputTypes[index],),
                       ],
-                    ))),
+                    )
+                    )
+                    ),
                     const SizedBox(height: 10,),
                     SizedBox(
                       width: 325,
                       height: 53,
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(onPressed: (){
+                      },
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10)
