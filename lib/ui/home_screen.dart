@@ -1,4 +1,6 @@
+import 'package:airline_reservation_system/ui/Auth/Login/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'Auth/Registeration/registeration_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static String screenName = "Home Screen";
@@ -7,6 +9,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -50,7 +53,9 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
             ElevatedButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushNamed(context, LoginScreen.screenName);
+              },
                 style: ElevatedButton.styleFrom(primary: Color(0xff4F718A),
                 fixedSize: const Size(300, 50),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
@@ -71,10 +76,12 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.pushNamed(context, RegisterationScreen.screenName);
+                },
                 style: ElevatedButton.styleFrom(
                     primary: const Color(0xff4F718A),
-                    fixedSize: Size(300, 49),
+                    fixedSize: const Size(300, 49),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
                 ),
                 child: const Row(
