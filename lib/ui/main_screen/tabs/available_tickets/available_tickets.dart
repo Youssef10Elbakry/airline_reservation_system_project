@@ -2,36 +2,33 @@ import 'package:flutter/material.dart';
 import './ticket_widget.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+import 'package:airline_reservation_system/ui/provider/available_tickets_provider.dart';
+
+
 
 class AvailableTickets extends StatefulWidget {
   const AvailableTickets({super.key});
+
 
   @override
   State<AvailableTickets> createState() => _AvailableTicketsState();
 }
 
+
+
+
 class _AvailableTicketsState extends State<AvailableTickets> {
   void initState(){
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_){
-      CollectionReference todosCollection = FirebaseFirestore.instance.collection("Available_Tickets");
-      DocumentReference newDoc = todosCollection.doc();
-      newDoc.set(
-          {
-            "departureFrom": "Cairo",
-            "destination": "New York",
-            "duration": "2 hr 30 mim",
-            "endOn": DateTime.now(),
-            "id": newDoc.id,
-            "numberOfAvailable": 20,
-            "price": 150,
-            "startOn": DateTime.now(),
-          }
-      );
+      provider.loadAvailableTickets();
     } );
   }
+  late ATProvider provider;
   @override
   Widget build(BuildContext context) {
+    provider = Provider.of(context);
     return Column(
         children: [
           SizedBox(
@@ -49,11 +46,12 @@ class _AvailableTicketsState extends State<AvailableTickets> {
                   ],
                 ),
                 CalendarTimeline(
-                  initialDate: DateTime.now(),
+                  initialDate: provider.selectedDate,
                   firstDate: DateTime.now().subtract(const Duration(days: 365)),
                   lastDate: DateTime.now().add(const Duration(days: 365)),
                   onDateSelected: (date){
-
+                    provider.selectedDate = date;
+                    provider.loadAvailableTickets();
                   },
                   leftMargin: 20,
                   monthColor: Colors.white,
@@ -65,13 +63,12 @@ class _AvailableTicketsState extends State<AvailableTickets> {
               ],
             ),
           ),
-          // Expanded(
-          //   child: ListView.builder(
-          //       itemCount: provider.todos.length, itemBuilder: (context, index) => TodoWidget(todoIndex: index, onDeleteClick: deleteSpecificTask, todo: provider.todos[index],)),
-          // ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: provider.availableTickets.length, itemBuilder: (context, index)=>TicketWidget(ticket: provider.availableTickets[index])),
+          ),
         ],
       );
   }
 }
-
 
