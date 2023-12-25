@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:airline_reservation_system/ui/main_screen/tabs/available_tickets/select_seat/small_box_widget.dart';
+import 'package:airline_reservation_system/ui/main_screen/tabs/available_tickets/select_seat/big_box_widget.dart';
 class SelectSeatScreen extends StatefulWidget {
   static String screenName = "Select Seat Screen";
   const SelectSeatScreen({super.key});
@@ -41,13 +42,20 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
                  Spacer()
                ],
           )),
-          Container(
+          Expanded(child: Container(
             child: Row(
               children: [
-                ListView()
+                Spacer(),
+                Expanded(child: ListView.builder(itemCount: 2, itemBuilder:(context, index) => BigBox(text: "A7", backColor: Color(0xffC3D5E3), borderColor: Color(0xffC3D5E3), fontColor: Colors.black))),
+                Spacer(),
+                Expanded(child: ListView.builder(itemCount: 2, itemBuilder:(context, index) => BigBox(text: "A7", backColor: Color(0xffC3D5E3), borderColor: Color(0xffC3D5E3), fontColor: Colors.black))),
+                Spacer(),
+                Expanded(child: ListView.builder(itemCount: 2, itemBuilder:(context, index) => BigBox(text: "A7", backColor: Color(0xffC3D5E3), borderColor: Color(0xffC3D5E3), fontColor: Colors.black))),
+                Spacer(),
+                Expanded(child: ListView.builder(itemCount: 2, itemBuilder:(context, index) => BigBox(text: "A7", backColor: Color(0xffC3D5E3), borderColor: Color(0xffC3D5E3), fontColor: Colors.black))),
               ],
             ),
-          )
+          ))
         ],
       ),
     );
