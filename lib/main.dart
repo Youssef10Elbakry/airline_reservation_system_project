@@ -1,5 +1,6 @@
 import 'package:airline_reservation_system/ui/Auth/Login/login_screen.dart';
 import 'package:airline_reservation_system/ui/main_screen/main_screen.dart';
+import 'package:airline_reservation_system/ui/main_screen/tabs/available_tickets/select_seat/select_seat_screen.dart';
 import 'package:airline_reservation_system/ui/provider/available_tickets_provider.dart';
 import 'package:provider/provider.dart';
 import 'ui/home_screen.dart';
@@ -20,9 +21,10 @@ void main() async{
         HomeScreen.screenName: (_) =>  const HomeScreen(),
         RegisterationScreen.screenName: (_) => RegisterationScreen(),
         LoginScreen.screenName: (_) =>LoginScreen(),
-        MainScreen.screenName: (_) => MainScreen()
+        MainScreen.screenName: (_) => MainScreen(),
+        SelectSeatScreen.screenName: (_) => SelectSeatScreen()
       },
-      initialRoute: MainScreen.screenName,
+      initialRoute: SelectSeatScreen.screenName,
     ),
   )
   );

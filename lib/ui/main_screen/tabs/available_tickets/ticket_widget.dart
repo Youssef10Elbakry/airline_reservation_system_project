@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:airline_reservation_system/model/AvailableTickets.dart';
 import 'package:airline_reservation_system/ui/main_screen/dotted_hor_line.dart';
 
@@ -9,10 +10,11 @@ class TicketWidget extends StatelessWidget {
   TicketWidget({required this.ticket});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+        child: Container(
       decoration: BoxDecoration(
-        color: Color(0xffEEF1F4),
-        borderRadius: BorderRadius.circular(7)
+          color: Color(0xffEEF1F4),
+          borderRadius: BorderRadius.circular(7)
       ),
       margin: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
       width: 353,
@@ -70,6 +72,9 @@ class TicketWidget extends StatelessWidget {
 
         ],
       ),
+    ),
+      onTap: (){
+      },
     );
   }
 }
