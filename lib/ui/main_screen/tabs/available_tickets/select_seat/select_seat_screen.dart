@@ -76,7 +76,7 @@ late AvailableTicket arguments;
                 child: ElevatedButton(
                   onPressed: (){
                     if(SelectSeatScreen.selectedSeats.isEmpty) return;
-                    //Navigator.pushNamed(context, ConfirmationScreen.screenName, arguments: Confirmation(selectedTicket:arguments, selectedSeats: SelectSeatScreen.selectedSeats));
+                    Navigator.pushNamed(context, ConfirmationScreen.screenName, arguments: Confirmation(selectedTicket:arguments, selectedSeats: SelectSeatScreen.selectedSeats));
                   }, child: Text("Next", style: TextStyle(fontSize: 20),),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

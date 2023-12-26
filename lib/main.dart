@@ -24,7 +24,7 @@ void main() async{
         LoginScreen.screenName: (_) =>LoginScreen(),
         MainScreen.screenName: (_) => MainScreen(),
         SelectSeatScreen.screenName: (_) => SelectSeatScreen(),
-        //ConfirmationScreen.screenName: (_) => ConfirmationScreen()
+        ConfirmationScreen.screenName: (_) => ConfirmationScreen()
       },
       initialRoute: MainScreen.screenName,
     ),
