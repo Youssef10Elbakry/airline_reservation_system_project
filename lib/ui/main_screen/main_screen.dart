@@ -1,3 +1,5 @@
+import 'package:airline_reservation_system/ui/Auth/dialogs/Dialogs.dart';
+import 'package:airline_reservation_system/ui/home_screen.dart';
 import 'package:airline_reservation_system/ui/main_screen/tabs/available_tickets/available_tickets.dart';
 import 'package:airline_reservation_system/ui/main_screen/tabs/reservations/reservations.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,10 @@ class _MainScreenState extends State<MainScreen> {
         ],
         onTap: (index){
           currIndex = index;
+          if(index == 2){
+            confirmSwitching(context);
+            return;
+          }
           setState(() {});
         },
         currentIndex: currIndex,

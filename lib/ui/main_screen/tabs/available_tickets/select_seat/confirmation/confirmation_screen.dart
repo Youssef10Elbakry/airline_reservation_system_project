@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:airline_reservation_system/ui/main_screen/main_screen.dart';
 import 'package:airline_reservation_system/model/AvailableTickets.dart';
 import 'package:airline_reservation_system/model/confirmation.dart';
 import 'package:airline_reservation_system/ui/main_screen/dotted_hor_line.dart';
@@ -118,6 +119,7 @@ class ConfirmationScreen extends StatelessWidget {
                     "reservedSeats": combinedReservedSeats
                   }
               );
+              Navigator.pushNamed(context, MainScreen.screenName);
             },
                 child: Text("Confirm", style: TextStyle(fontSize: 20)),
                 style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

@@ -26,7 +26,7 @@ void main() async{
         SelectSeatScreen.screenName: (_) => SelectSeatScreen(),
         ConfirmationScreen.screenName: (_) => ConfirmationScreen()
       },
-      initialRoute: MainScreen.screenName,
+      initialRoute: HomeScreen.screenName,
     ),
   )
   );

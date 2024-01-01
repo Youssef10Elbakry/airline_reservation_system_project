@@ -1,16 +1,26 @@
+import 'package:airline_reservation_system/model/app_user.dart';
+import 'package:airline_reservation_system/ui/Auth/dialogs/Dialogs.dart';
+import 'package:airline_reservation_system/ui/main_screen/main_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../myTextFormField.dart';
 
 class LoginScreen extends StatelessWidget {
   static String screenName = "Login Screen";
-  List hintTexts = ["Username", "Password"];
-  List inputTypes = [TextInputType.name,TextInputType.visiblePassword];
+  BuildContext? scontext;
+  String email = "";
+  String password = "";
+  List<TextEditingController> controllers = [TextEditingController(), TextEditingController()];
+  List hintTexts = ["email address", "Password"];
+  List inputTypes = [TextInputType.emailAddress,TextInputType.visiblePassword];
   static final GlobalKey<FormState>  loginFormKey = GlobalKey<FormState>();
   LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    scontext = context;
     return Form(
       key: loginFormKey,
       child: Container(
@@ -43,7 +53,7 @@ class LoginScreen extends StatelessWidget {
                       Expanded(child: ListView.builder(itemCount: 2, itemBuilder: (_, index )=>Column(
                         children: [
                           index == 0 ? const SizedBox(height: 20):const SizedBox(height: 40,),
-                          MyTextFormField(hintText: hintTexts[index], inputType: inputTypes[index],),
+                          MyTextFormField(hintText: hintTexts[index], inputType: inputTypes[index], controller: controllers[index], ),
                         ],
                       )
                       )
@@ -54,7 +64,10 @@ class LoginScreen extends StatelessWidget {
                         height: 53,
                         child: ElevatedButton(onPressed: (){
                           bool isValid = loginFormKey.currentState!.validate();
-                          if(isValid){}
+                          if(isValid){
+                            // getText();
+                            // login();
+                          }
                         },
                           style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -74,4 +87,31 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+  void getText(){
+    email = controllers[0].text;
+    password = controllers[1].text;
+    print("email: $email");
+    print("pass: $password");
+  }
+//
+//   void login() async{
+//     try {
+//       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+//           email: email,
+//           password: password
+//       );
+//       AppUser currentUser = await getUserFromFirestore(credential.user!.uid);
+//       print("login successfully");
+//       Navigator.pushReplacementNamed(scontext!, MainScreen.screenName);
+//     } on FirebaseAuthException catch (e) {
+//       errorDialog(scontext!, e.message ?? "Something went wrong. Try again");
+//     }
+//   }
+//
+//   Future<AppUser> getUserFromFirestore(String id) async{
+//     CollectionReference<AppUser> userCollection = AppUser.collection();
+//     DocumentSnapshot<AppUser> documentSnapshot = await userCollection.doc(id).get();
+//     return documentSnapshot.data()!;
+//   }
 }

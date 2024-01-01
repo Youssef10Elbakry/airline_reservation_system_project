@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyTextFormField extends StatelessWidget {
-  MyTextFormField({super.key, required this.hintText, required this.inputType});
+  MyTextFormField({super.key, required this.hintText, required this.inputType, required this.controller});
   String hintText;
   TextInputType inputType;
-
+  TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:  controller,
       validator: (text){
         if(inputType == TextInputType.name || inputType == TextInputType.visiblePassword){
           if(text == null || text.isEmpty){
